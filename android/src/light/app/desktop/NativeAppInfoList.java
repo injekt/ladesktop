@@ -40,8 +40,8 @@ public class NativeAppInfoList {
 			try {
 				JSONObject json = new JSONObject();
 				json.put(APP_NAME, this.mAppName);
-				json.put(PACKAGE_NAME, this.mAppName);
-				json.put(ICON_PATH, this.mAppName);
+				json.put(PACKAGE_NAME, this.mPackageName);
+				json.put(ICON_PATH, this.mIconPath);
 
 				return json.toString();
 			}
