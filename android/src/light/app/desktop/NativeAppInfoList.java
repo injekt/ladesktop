@@ -54,7 +54,7 @@ public class NativeAppInfoList {
 
 	private static final String ICON_PATH = Environment.getExternalStorageDirectory().toString()
 			+ "/zatzIcons";
-	private ArrayList<NativeAppInfo> mList = null;
+	private ArrayList<NativeAppInfo> mList = new ArrayList<NativeAppInfoList.NativeAppInfo>();
 
 	public NativeAppInfoList(Context ctx) {
 	    File fileParent = new File(ICON_PATH);
