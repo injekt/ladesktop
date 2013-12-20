@@ -1,0 +1,3 @@
+#! /bin/bash
+
+zip -r launcher.plg launcher.apk js/ manifest.xml
