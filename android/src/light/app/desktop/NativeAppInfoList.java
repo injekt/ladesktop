@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -16,6 +17,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Environment;
 
 public class NativeAppInfoList {
@@ -83,6 +85,17 @@ public class NativeAppInfoList {
 				mList.add(new NativeAppInfo(label, packageName, iconPath));
 			}
 		}
+	}
+
+	public void installApk(String apkPath, Context context) {
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setDataAndType(Uri.parse("file://" + apkPath),"application/vnd.android.package-archive");
+		context.startActivity(intent);
+	}
+
+	public void startActivity(String packageName, Context context) {
+		Intent intent =  context.getPackageManager().getLaunchIntentForPackage(packageName);
+	    context.startActivity(intent);
 	}
 
 	public Bitmap drawableToBitmap(Drawable drawable) {
