@@ -14,11 +14,16 @@ public class Launcher extends Plugin {
 		
 		PluginResult result = null;
 		
-		if ("biubiubiu".equals(action)) {
-			result = new PluginResult(PluginResult.Status.OK, "hehehe");
+		if ("getNativeAppList".equals(action)) {
+			result = getNativeAppList();
 		}
 		
 		return result;
+	}
+
+	private PluginResult getNativeAppList() {
+		NativeAppInfoList list = new NativeAppInfoList();
+		return new PluginResult(PluginResult.Status.OK, list.toString());
 	}
 
 }
